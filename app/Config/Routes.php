@@ -32,28 +32,20 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', function	(){
-	$data = [
-		'title' => 'Home',
-		'nama' => 'Nopri Wiratama'
-	];
-	echo view('layout/header',$data);
-	echo view('layout/navbar');
-	echo view('v_home');
-	echo view('layout/footer');
+$routes->get('/', function(){
+	echo view("layouts/header", ['title' => 'Home']);
+	echo view("layouts/navbar");
+	echo view("v_home");
+	echo view("layouts/footer");
 });
-$routes->get('/admin', 'Templating::index');
+$routes->get('/about', function(){
+	echo view("layouts/header", ['title' => 'Blog - About']);
+	echo view("layouts/navbar");
+	echo view("v_about");
+	echo view("layouts/footer");
+});
 $routes->get('/posts', 'PostController::index');
-$routes->get('/about', function (){
-	$data = [
-		'title' => 'About',
-		'nama' => 'Nopri Wiratama'
-	];
-	echo view('layout/header',$data);
-	echo view('layout/navbar');
-	echo view('v_about'); 
-	echo view('layout/footer');
-});
+$routes->get('/admin', 'Templating::index');
 
 /*
  * --------------------------------------------------------------------

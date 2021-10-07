@@ -8,13 +8,9 @@ class PostController extends BaseController
 {
 	public function index()
 	{
-		$data = [
-			'title' => 'Blog - Post',
-			'nama' => 'Nopri Wiratama'
-		];
-		echo view('layout/header',$data);
-		echo view('layout/navbar');
-		echo view('v_post.php');
-		echo view('layout/footer');
+		echo view("layouts/header", ['title' => 'Blog - Posts']);
+		echo view("layouts/navbar");
+		echo view("v_posts");
+		echo view("layouts/footer");
 	}
 }
