@@ -17,5 +17,15 @@ class Register extends BaseController
 		// echo view("layouts/footer");
         return view("v_register", $data);
 	}
-	
+	public function saveRegister()
+	{
+        $request = service('request');
+		$data = [
+            'fullname' => $request->getVar('fullname'),
+            'email' => $request->getVar('email'),
+            'password' => $request->getVar('password')
+        ];
+        $this->UserModel->insert($data);
+		return redirect()->to('register');
+	}
 }

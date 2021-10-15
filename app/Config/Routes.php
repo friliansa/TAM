@@ -46,7 +46,8 @@ $routes->get('/about', function(){
 });
 $routes->get('/posts', 'PostController::index');
 $routes->get('/admin', 'Templating::index');
-$routes->get('/register', 'Register::index');
+$routes->get('', 'Register::index');
+$routes->post('/saveRegister', 'Register::saveRegister');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
